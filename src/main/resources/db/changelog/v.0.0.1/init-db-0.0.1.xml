@@ -9,7 +9,6 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="user_car_pkey"/>
             </column>
-            <column name="car_id" type="BIGINT"/>
             <column name="user_id" type="BIGINT"/>
             <column name="vin_number" type="VARCHAR(255)">
                 <constraints nullable="false" unique="true"/>
@@ -159,6 +158,19 @@
             </column>
         </createTable>
     </changeSet>
+    <changeSet author="ZmaevDA" id="1698581124717-23">
+        <createTable tableName="user_car_map">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_car_map_pkey"/>
+            </column>
+            <column name="user_car_id" type="BIGINT">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="car_id" type="BIGINT">
+                <constraints unique="true" nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
     <changeSet author="ZmaevDA" id="1698581124717-11">
         <createTable tableName="car_part_on_marketplace">
             <column name="id" autoIncrement="true" type="BIGINT">
@@ -199,12 +211,6 @@
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="engine_type" validate="true"/>
     </changeSet>
-    <changeSet author="ZmaevDA" id="1698581124717-16">
-        <addForeignKeyConstraint baseColumnNames="car_id" baseTableName="user_car"
-                                 constraintName="fk551losx9j76as5d6bfsqvi213" deferrable="false"
-                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
-                                 referencedColumnNames="id" referencedTableName="car" validate="true"/>
-    </changeSet>
     <changeSet author="ZmaevDA" id="1698581124717-17">
         <addForeignKeyConstraint baseColumnNames="car_part_category_id" baseTableName="car_part_type"
                                  constraintName="gt551losx9j76655d6bfsqvi213" deferrable="false"
@@ -240,5 +246,17 @@
                                  constraintName="124f31losx9j7jb345fdfgbciaasf" deferrable="false"
                                  initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="car_part" validate="true"/>
+    </changeSet>
+    <changeSet author="ZmaevDA" id="1698581124717-24">
+        <addForeignKeyConstraint baseColumnNames="user_car_id" baseTableName="user_car_map"
+                                 constraintName="124f31losx9j7jb345fdfgbciaasf" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="user_car" validate="true"/>
+    </changeSet>
+    <changeSet author="ZmaevDA" id="1698581124717-25">
+        <addForeignKeyConstraint baseColumnNames="car_id" baseTableName="user_car_map"
+                                 constraintName="124f31fs329j7jb345fdfgbciaasf" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="car" validate="true"/>
     </changeSet>
 </databaseChangeLog>
