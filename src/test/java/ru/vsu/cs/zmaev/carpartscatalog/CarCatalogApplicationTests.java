@@ -1,4 +1,4 @@
-package ru.vsu.cs.zmaev.carcatalog;
+package ru.vsu.cs.zmaev.carpartscatalog;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
