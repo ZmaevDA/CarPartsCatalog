@@ -39,8 +39,9 @@ jobs:
       - name: Push Docker Image for Car Catalog Service
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: /
           push: true
+          file: Dockerfile
           tags: zmamz/car-catalog-service:latest
 
   deploy:
