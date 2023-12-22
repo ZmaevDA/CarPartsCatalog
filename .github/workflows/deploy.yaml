@@ -41,7 +41,6 @@ jobs:
         with:
           context: .
           push: true
-          file: ./Dockerfile
           tags: zmamz/car-catalog-service:latest
 
   deploy:
