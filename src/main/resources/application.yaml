@@ -5,7 +5,7 @@ spring:
   profiles:
     active: @profileActive@
   application:
-    name: CarPartCatalog
+    name: CarPartsCatalog
   datasource:
     driver-class-name: org.postgresql.Driver
   liquibase:
