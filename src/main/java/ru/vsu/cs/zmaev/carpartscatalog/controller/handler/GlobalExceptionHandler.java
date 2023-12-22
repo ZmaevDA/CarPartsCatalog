@@ -15,13 +15,10 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import ru.vsu.cs.zmaev.carpartscatalog.exception.EntityException;
 import ru.vsu.cs.zmaev.carpartscatalog.exception.message.ErrorMessage;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Reference;
 
 @Slf4j
 @RestControllerAdvice
