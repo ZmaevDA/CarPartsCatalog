@@ -34,14 +34,14 @@ jobs:
       # Car Catalog Service
 
       - name: Build Car Catalog Service with Maven
-        run: mvn package -Pprod -Dmaven.test.skip=true --file /pom.xml
+        run: mvn package -Pprod -Dmaven.test.skip=true --file pom.xml
 
       - name: Push Docker Image for Car Catalog Service
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          file: /Dockerfile
+          file: Dockerfile
           tags: zmamz/car-catalog-service:latest
 
   deploy:
