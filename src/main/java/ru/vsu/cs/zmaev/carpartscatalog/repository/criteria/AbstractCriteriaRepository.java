@@ -8,7 +8,7 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import org.springframework.data.domain.*;
 import ru.vsu.cs.zmaev.carpartscatalog.domain.dto.EntityPage;
-import ru.vsu.cs.zmaev.carpartscatalog.exception.CustomException;
+import ru.vsu.cs.zmaev.carpartscatalog.exception.NoSuchAttributeException;
 
 public abstract class AbstractCriteriaRepository<T, C> implements CriteriaRepository<T, C> {
 
@@ -49,7 +49,7 @@ public abstract class AbstractCriteriaRepository<T, C> implements CriteriaReposi
                 criteriaQuery.orderBy(criteriaBuilder.desc(root.get(entityPage.getSortBy())));
             }
         } catch (Exception e) {
-            throw new CustomException("Error setting order", e);
+            throw new NoSuchAttributeException(entityPage.getSortDirection().name());
         }
     }
 

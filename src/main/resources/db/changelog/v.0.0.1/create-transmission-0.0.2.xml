@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet author="ZmaevDA" id="2138581121856-1">
+        <insert tableName="transmission_type">
+            <column name="id" value="1"/>
+            <column name="transmission_name" value="AWD"/>
+        </insert>
+        <insert tableName="transmission_type">
+            <column name="id" value="2"/>
+            <column name="transmission_name" value="FWD"/>
+        </insert>
+        <insert tableName="transmission_type">
+            <column name="id" value="3"/>
+            <column name="transmission_name" value="RWD"/>
+        </insert>
+        <insert tableName="transmission_type">
+            <column name="id" value="4"/>
+            <column name="transmission_name" value="FOUR_WD"/>
+        </insert>
+        <insert tableName="transmission_type">
+            <column name="id" value="5"/>
+            <column name="transmission_name" value="ELECTRIC"/>
+        </insert>
+        <insert tableName="transmission_type">
+            <column name="id" value="6"/>
+            <column name="transmission_name" value="HYBRID"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

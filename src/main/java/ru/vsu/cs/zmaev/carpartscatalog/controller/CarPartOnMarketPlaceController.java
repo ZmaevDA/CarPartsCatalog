@@ -3,6 +3,7 @@ package ru.vsu.cs.zmaev.carpartscatalog.controller;
 import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +35,7 @@ public class CarPartOnMarketPlaceController {
             @RequestParam String oem
     ) {
         Page<CarPartOnMarketplace> response = service.findAllWithFilters(
-                new EntityPage(pagePosition, pageSize),
+                new EntityPage(pagePosition, pageSize, Sort.Direction.ASC, "id"),
                 new CarPartOnMarketplaceCriteriaSearch(oem));
         return ResponseEntity.status(HttpStatus.OK).body(response.map(mapper::toDto));
     }
